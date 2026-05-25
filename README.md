@@ -2,13 +2,14 @@
 
 AI multi-agent workspace for collaborative product planning, architecture, and execution.
 
-Designed and Developed by [Agra Yuda](https://github.com/agrahub). Built by [Yuda Works](https://github.com/yuda-works).
+Designed and developed by [Agra Yuda](https://github.com/agrahub).  
+Built by [Yuda Works](https://github.com/yuda-works).
 
 ---
 
 ## Overview
 
-Relay simulates a collaborative AI product team.
+Relay simulates a collaborative AI product organization.
 
 Give Relay an idea, and specialized AI agents work together to transform it into a structured product plan.
 
@@ -18,10 +19,14 @@ Example input:
 
 Relay coordinates multiple AI agents such as:
 
-- CEO
+- Business Analyst
+- System Analyst
 - Product Manager
-- Designer
-- Engineer
+- UX Designer
+- Software Architect
+- Software Engineer
+- QA Engineer
+- Technical Writer
 - Reviewer
 
 Each agent contributes from its own perspective to help shape the final product direction.
@@ -38,6 +43,10 @@ Each agent contributes from its own perspective to help shape the final product 
 - Real-time generation experience
 - Product planning assistance
 - Architecture and implementation suggestions
+- Automated documentation generation
+- QA and testing analysis
+- Bring Your Own Key (BYOK) architecture
+- Multi-provider AI support
 
 ---
 
@@ -58,8 +67,8 @@ Each agent contributes from its own perspective to help shape the final product 
 
 ### AI Providers
 
-- Groq
 - OpenRouter
+- Groq
 
 ### Deployment
 
@@ -75,18 +84,46 @@ User Prompt
     ↓
 Orchestrator
     ↓
-CEO Agent
+Business Analyst
     ↓
-PM Agent
+System Analyst
     ↓
-Designer Agent
+Product Manager
     ↓
-Engineer Agent
+UX Designer
     ↓
-Reviewer Agent
+Software Architect
+    ↓
+Software Engineer
+    ↓
+QA Engineer
+    ↓
+Technical Writer
+    ↓
+Reviewer
 ```
 
 Each agent receives the previous context and contributes specialized outputs.
+
+---
+
+## BYOK (Bring Your Own Key)
+
+Relay uses a Bring Your Own Key (BYOK) architecture.
+
+Users provide their own AI provider API keys, allowing them to:
+
+- control their own usage and costs
+- choose their preferred AI provider
+- use their own model configurations
+- safely use Relay without shared API quotas
+
+Supported providers:
+
+- OpenRouter
+- Groq
+
+API keys are intended to be stored locally on the client side and are never committed to the repository.
 
 ---
 
@@ -128,9 +165,11 @@ pnpm install
 
 ---
 
-### Environment Variables
+## Environment Variables
 
-Create a `.env.local` file:
+Relay primarily uses user-provided API keys (BYOK).
+
+Some optional environment variables may still be used during development:
 
 ```env
 OPENROUTER_API_KEY=
@@ -139,7 +178,7 @@ GROQ_API_KEY=
 
 ---
 
-### Run Development Server
+## Run Development Server
 
 ```bash
 pnpm dev
@@ -162,6 +201,9 @@ http://localhost:3000
 - [x] Workspace UI
 - [x] Markdown rendering
 - [ ] Agent activity states
+- [ ] Provider settings panel
+- [ ] Model selection
+- [ ] Exportable markdown outputs
 
 ### v2
 
@@ -169,6 +211,8 @@ http://localhost:3000
 - [ ] Persistent projects
 - [ ] Conversation history
 - [ ] Database integration
+- [ ] Encrypted API key storage
+- [ ] Collaborative workspaces
 
 ### v3
 
@@ -176,6 +220,8 @@ http://localhost:3000
 - [ ] Tool calling
 - [ ] Web search integration
 - [ ] GitHub integration
+- [ ] Exportable project artifacts
+- [ ] Agent customization
 
 ---
 
