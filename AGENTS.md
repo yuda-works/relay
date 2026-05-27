@@ -295,19 +295,18 @@ Avoid:
 Preferred structure:
 
 ```txt
-src/
-├── app/
-├── components/
-├── features/
-├── hooks/
-├── lib/
-│   ├── agents/
-│   ├── orchestrator/
-│   ├── prompts/
-│   ├── providers/
-│   └── utils/
-├── styles/
-└── types/
+app/
+components/
+features/
+hooks/
+lib/
+├── agents/
+├── orchestrator/
+├── prompts/
+├── providers/
+└── utils/
+styles/
+types/
 ```
 
 Agent-specific logic should remain modular and isolated.

@@ -130,16 +130,15 @@ API keys are intended to be stored locally on the client side and are never comm
 ## Project Structure
 
 ```txt
-src/
-├── app/
-├── components/
-├── lib/
-│   ├── agents/
-│   ├── prompts/
-│   └── orchestrator/
-├── hooks/
-├── styles/
-└── types/
+app/
+components/
+lib/
+├── agents/
+├── prompts/
+└── orchestrator/
+hooks/
+styles/
+types/
 ```
 
 ---

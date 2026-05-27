@@ -1,8 +1,11 @@
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+
 import "./globals.css"
 import { ThemeProvider } from "@/components/providers/theme"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+
+import type { Metadata } from "next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -22,14 +25,16 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", "font-sans", inter.variable)}
     >
       <head />
-      <body className="min-h-full flex flex-col">
+      <body className="flex flex-col min-h-screen">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

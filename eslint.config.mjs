@@ -1,12 +1,16 @@
 import { defineConfig, globalIgnores } from "eslint/config"
 import nextVitals from "eslint-config-next/core-web-vitals"
 import nextTs from "eslint-config-next/typescript"
+import importPlugin from "eslint-plugin-import"
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
 
   {
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       // 1. Require trailing commas
       "comma-dangle": ["error", {
@@ -60,6 +64,26 @@ const eslintConfig = defineConfig([
 
       // 10. Disallow unnecessary semicolons
       "semi": ["error", "never"],
+
+      // 11. Sort and order imports
+      "import/order": ["error", {
+        groups: [
+          "builtin",   // Node built-ins (fs, path)
+          "external",  // npm packages (react, next)
+          "internal",  // aliased paths (@/components)
+          "parent",    // ../something
+          "sibling",   // ./something
+          "index",     // ./index
+          "type",      // type imports
+        ],
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      }],
+
+      "import/no-duplicates": "error",
 
       // (optional but commonly paired)
       "no-trailing-spaces": "error",
